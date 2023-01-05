@@ -39,9 +39,11 @@ fun RecipeListScreen(
 
     val recipe = viewModel.recipesResponse.value
 
-    Box(modifier = Modifier
-        .fillMaxSize()
-        .padding(8.dp)) {
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(top = 8.dp, start = 8.dp, end = 8.dp, bottom = 32.dp)
+    ) {
 
         LazyVerticalGrid(
             columns = GridCells.Fixed(GRID_SPAN_COUNT),
@@ -51,21 +53,6 @@ fun RecipeListScreen(
                 }
             }
         )
-
-        FloatingActionButton(
-            modifier = Modifier
-                .align(alignment = Alignment.BottomEnd)
-                .semantics { testTag = "close-details-screen-fab" },
-            onClick = {
-
-            }) {
-
-            Icon(
-                imageVector = androidx.compose.material.icons.Icons.Filled.Check,
-                contentDescription = ""
-            )
-
-        }
     }
 }
 

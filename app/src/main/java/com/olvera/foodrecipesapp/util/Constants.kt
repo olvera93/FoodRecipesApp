@@ -3,7 +3,7 @@ package com.olvera.foodrecipesapp.util
 class Constants {
 
     companion object {
-        const val API_KEY = "3dd55e4451a744adb792595e364b4730"
+        const val API_KEY = "YOUR APIKEY"
         const val BASE_URL = "https://api.spoonacular.com/"
         const val BASE_IMAGE_URL_INGREDIENTS = "https://spoonacular.com/cdn/ingredients_100x100/"
         const val BASE_IMAGE_URL = "https://spoonacular.com/recipeImages/"
