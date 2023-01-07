@@ -7,7 +7,6 @@ import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
-import androidx.compose.material.icons.filled.Check
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -15,8 +14,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import com.olvera.foodrecipesapp.R
-import androidx.compose.ui.semantics.semantics
-import androidx.compose.ui.semantics.testTag
+import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -39,9 +37,11 @@ fun RecipeListScreen(
 
     val recipe = viewModel.recipesResponse.value
 
-    Box(modifier = Modifier
-        .fillMaxSize()
-        .padding(8.dp)) {
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(top = 8.dp, start = 8.dp, end = 8.dp, bottom = 32.dp)
+    ) {
 
         LazyVerticalGrid(
             columns = GridCells.Fixed(GRID_SPAN_COUNT),
@@ -51,28 +51,17 @@ fun RecipeListScreen(
                 }
             }
         )
-
-        FloatingActionButton(
-            modifier = Modifier
-                .align(alignment = Alignment.BottomEnd)
-                .semantics { testTag = "close-details-screen-fab" },
-            onClick = {
-
-            }) {
-
-            Icon(
-                imageVector = androidx.compose.material.icons.Icons.Filled.Check,
-                contentDescription = ""
-            )
-
-        }
     }
 }
 
 
 @Composable
 @ExperimentalCoilApi
+@ExperimentalFoundationApi
+@ExperimentalMaterialApi
 fun RecipeGridItem(recipe: Result) {
+
+    val myFontFamily = FontFamily(Font(R.font.courgette))
 
     Surface(
         modifier = Modifier
@@ -85,8 +74,6 @@ fun RecipeGridItem(recipe: Result) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
         ) {
-
-            // pintar imagen
 
             AsyncImage(
                 modifier = Modifier
@@ -108,7 +95,7 @@ fun RecipeGridItem(recipe: Result) {
                     modifier = Modifier.padding(),
                     text = recipe.title,
                     fontSize = 18.sp,
-                    fontFamily = FontFamily.Serif
+                    fontFamily = myFontFamily
                 )
 
                 Text(
@@ -135,10 +122,11 @@ fun RecipeGridItem(recipe: Result) {
 
                     Icons(
                         iconId = R.drawable.ic_leaf,
-                        iconColor = Color.DarkGray,
-                        iconDescription = recipe.vegetarian.toString(),
-                        textColor = Color.DarkGray
+                        iconColor = if (recipe.vegetarian) Color.Green else Color.DarkGray,
+                        iconDescription = if (recipe.vegetarian) "Vegan" else "Not Vegan",
+                        textColor = if (recipe.vegetarian) Color.Green else Color.DarkGray
                     )
+
                 }
             }
         }

@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">FoodRecipesApp</string>
     <string name="title_activity_food_recipe_compose">FoodRecipeComposeActivity</string>
+    <string name="nav_home_screen">Home Screen</string>
 </resources>

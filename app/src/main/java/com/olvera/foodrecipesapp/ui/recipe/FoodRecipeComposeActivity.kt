@@ -9,6 +9,7 @@ import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.Surface
 import androidx.compose.ui.Modifier
 import coil.annotation.ExperimentalCoilApi
+import com.olvera.foodrecipesapp.Home
 import com.olvera.foodrecipesapp.ui.recipe.theme.FoodRecipesAppTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -24,7 +25,8 @@ class FoodRecipeComposeActivity : ComponentActivity() {
             FoodRecipesAppTheme {
                 Surface(
                     modifier = Modifier.fillMaxSize()) {
-                    RecipeListScreen()
+                    //RecipeListScreen()
+                    Home()
                 }
             }
         }

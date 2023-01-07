@@ -21,8 +21,11 @@ fun Icons(
     textColor: Color
 ) {
 
-    Column(modifier = Modifier.padding(end = 16.dp)) {
+    Column(modifier = Modifier.padding(end = 16.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
         Image(
+            modifier = Modifier.padding(4.dp),
             painter = painterResource(id = iconId),
             contentDescription = "",
             colorFilter = ColorFilter.tint(iconColor),
