@@ -24,6 +24,7 @@ import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.olvera.foodrecipesapp.composables.Icons
 import com.olvera.foodrecipesapp.model.Result
+import org.jsoup.Jsoup
 
 private const val GRID_SPAN_COUNT = 1
 
@@ -100,7 +101,7 @@ fun RecipeGridItem(recipe: Result) {
 
                 Text(
                     modifier = Modifier.padding(top = 8.dp),
-                    text = recipe.summary,
+                    text = parseHtml(recipe.summary),
                     maxLines = 3
                 )
 
@@ -131,4 +132,8 @@ fun RecipeGridItem(recipe: Result) {
             }
         }
     }
+}
+
+fun parseHtml(description: String): String{
+    return Jsoup.parse(description).text()
 }

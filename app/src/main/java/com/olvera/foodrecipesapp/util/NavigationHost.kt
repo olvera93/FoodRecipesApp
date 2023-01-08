@@ -8,6 +8,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import coil.annotation.ExperimentalCoilApi
+import com.olvera.foodrecipesapp.ui.foodjoke.FoodJokeScreen
 import com.olvera.foodrecipesapp.ui.recipe.RecipeListScreen
 
 @ExperimentalFoundationApi
@@ -25,6 +26,9 @@ fun NavigationHost(navController: NavHostController) {
             RecipeListScreen()
         }
 
+        composable(ItemsMenu.FoodRecipeJoke.route) {
+            FoodJokeScreen()
+        }
 
     }
 

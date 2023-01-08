@@ -25,7 +25,6 @@ class FoodRecipeComposeActivity : ComponentActivity() {
             FoodRecipesAppTheme {
                 Surface(
                     modifier = Modifier.fillMaxSize()) {
-                    //RecipeListScreen()
                     Home()
                 }
             }
