@@ -2,6 +2,7 @@ package com.olvera.foodrecipesapp.data
 
 import com.olvera.foodrecipesapp.data.remote.FoodRecipeApi
 import com.olvera.foodrecipesapp.di.DispatchersModule
+import com.olvera.foodrecipesapp.model.FoodJoke
 import com.olvera.foodrecipesapp.model.FoodRecipe
 import com.olvera.foodrecipesapp.util.NetworkResult
 import kotlinx.coroutines.CoroutineDispatcher
@@ -22,6 +23,9 @@ interface RecipeTasks {
         fillIngredients: String
     ): NetworkResult<FoodRecipe>
 
+
+    suspend fun getFoodJoke(apiKey: String): NetworkResult<FoodJoke>
+
 }
 
 class RecipeRepository @Inject constructor(
@@ -40,6 +44,10 @@ class RecipeRepository @Inject constructor(
         return withContext(dispatcher) {
             downloadRecipes(number, apiKey, type, diet, addRecipeInformation, fillIngredients)
         }
+    }
+
+    override suspend fun getFoodJoke(apiKey: String): NetworkResult<FoodJoke> = makeNetworkCall {
+        recipeApi.getFoodJoke(apiKey)
     }
 
     private suspend fun downloadRecipes(

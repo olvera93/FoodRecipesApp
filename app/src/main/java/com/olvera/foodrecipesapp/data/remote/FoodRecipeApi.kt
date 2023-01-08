@@ -1,5 +1,6 @@
 package com.olvera.foodrecipesapp.data.remote
 
+import com.olvera.foodrecipesapp.model.FoodJoke
 import com.olvera.foodrecipesapp.model.FoodRecipe
 import com.olvera.foodrecipesapp.util.Constants
 import retrofit2.Response
@@ -17,4 +18,9 @@ interface FoodRecipeApi {
         @Query(Constants.QUERY_ADD_RECIPE_INFORMATION) addRecipeInformation: String,
         @Query(Constants.QUERY_FILL_INGREDIENTS) fillIngredients: String
     ): FoodRecipe
+
+    @GET("food/jokes/random")
+    suspend fun getFoodJoke(
+        @Query(Constants.QUERY_API_KEY) apiKey: String
+    ): FoodJoke
 }

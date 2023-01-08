@@ -1,9 +1,8 @@
 package com.olvera.foodrecipesapp.util
 
 class Constants {
-
     companion object {
-        const val API_KEY = "YOUR_API"
+        const val API_KEY = "YOUR_API_KEY"
         const val BASE_URL = "https://api.spoonacular.com/"
         const val BASE_IMAGE_URL_INGREDIENTS = "https://spoonacular.com/cdn/ingredients_100x100/"
         const val BASE_IMAGE_URL = "https://spoonacular.com/recipeImages/"
@@ -17,7 +16,7 @@ class Constants {
         const val QUERY_FILL_INGREDIENTS = "fillIngredients"
 
         // Bottom Sheet and Preferences
-        const val DEFAULT_RECIPES_NUMBER = "50"
+        const val DEFAULT_RECIPES_NUMBER = "25"
         const val DEFAULT_MEAL_TYPE = "main course"
         const val DEFAULT_DIET_TYPE = "gluten free"
 
