@@ -1,5 +1,6 @@
 package com.olvera.foodrecipesapp.util
 
+import android.util.Log
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.runtime.Composable
@@ -23,7 +24,11 @@ fun NavigationHost(navController: NavHostController) {
     ) {
 
         composable(ItemsMenu.Main.route) {
-            RecipeListScreen()
+            RecipeListScreen(onRecipeClicked = {
+                // imprimir el id de la receta
+                Log.d("TAG 2: ", it.recipeId.toString())
+
+            })
         }
 
         composable(ItemsMenu.FoodRecipeJoke.route) {

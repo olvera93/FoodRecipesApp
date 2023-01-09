@@ -33,7 +33,8 @@ private const val GRID_SPAN_COUNT = 1
 @ExperimentalMaterialApi
 @ExperimentalCoilApi
 fun RecipeListScreen(
-    viewModel: FoodRecipesViewModel = hiltViewModel()
+    viewModel: FoodRecipesViewModel = hiltViewModel(),
+    onRecipeClicked: (Result) -> Unit
 ) {
 
     val recipe = viewModel.recipesResponse.value
@@ -48,7 +49,7 @@ fun RecipeListScreen(
             columns = GridCells.Fixed(GRID_SPAN_COUNT),
             content = {
                 items(recipe) { recipe ->
-                    RecipeGridItem(recipe = recipe)
+                    RecipeGridItem(recipe = recipe, onRecipeClicked = onRecipeClicked)
                 }
             }
         )
@@ -60,7 +61,10 @@ fun RecipeListScreen(
 @ExperimentalCoilApi
 @ExperimentalFoundationApi
 @ExperimentalMaterialApi
-fun RecipeGridItem(recipe: Result) {
+fun RecipeGridItem(
+    recipe: Result,
+    onRecipeClicked: (Result) -> Unit
+) {
 
     val myFontFamily = FontFamily(Font(R.font.courgette))
 
@@ -69,7 +73,8 @@ fun RecipeGridItem(recipe: Result) {
             .padding(8.dp)
             .fillMaxWidth(),
         elevation = 6.dp,
-        shape = RoundedCornerShape(4.dp)
+        shape = RoundedCornerShape(4.dp),
+        onClick = { onRecipeClicked(recipe) }
     ) {
 
         Row(
@@ -123,9 +128,13 @@ fun RecipeGridItem(recipe: Result) {
 
                     Icons(
                         iconId = R.drawable.ic_leaf,
-                        iconColor = if (recipe.vegetarian) Color.Green else Color.DarkGray,
+                        iconColor = if (recipe.vegetarian) colorResource(id = R.color.green) else colorResource(
+                            id = R.color.darkGray
+                        ),
                         iconDescription = if (recipe.vegetarian) "Vegan" else "Not Vegan",
-                        textColor = if (recipe.vegetarian) Color.Green else Color.DarkGray
+                        textColor = if (recipe.vegetarian) colorResource(id = R.color.green) else colorResource(
+                            id = R.color.darkGray
+                        )
                     )
 
                 }
@@ -134,6 +143,6 @@ fun RecipeGridItem(recipe: Result) {
     }
 }
 
-fun parseHtml(description: String): String{
+fun parseHtml(description: String): String {
     return Jsoup.parse(description).text()
 }
