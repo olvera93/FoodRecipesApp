@@ -11,15 +11,13 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material.Text
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.ColorFilter
-import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.olvera.foodrecipesapp.composables.Icons
+import com.olvera.foodrecipesapp.composables.IconsDetail
 
 
 @Composable
@@ -109,31 +107,60 @@ fun RecipeDetail() {
             fontSize = 30.sp
         )
 
-        Box(
-            modifier = Modifier
-                .padding(top = 60.dp)
-                .fillMaxWidth()
-        ) {
+        Column {
 
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                Image(
-                    painter = painterResource(id = R.drawable.ic_check_circle_24),
-                    contentDescription = "",
-                    colorFilter = ColorFilter.tint(color = colorResource(id = R.color.green)),
-                    alignment = Alignment.Center
-                )
+            Box(
+                modifier = Modifier
+                    .padding(top = 60.dp)
+                    .fillMaxWidth()
+            ) {
+                Column(
+                    modifier = Modifier
+                        .fillMaxWidth(),
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    IconsRow()
+                    IconsRow()
+                }
 
-                Text(
-                    modifier = Modifier.padding(start = 4.dp),
-                    text = "Icono",
-                    textAlign = TextAlign.Center,
-                    color = colorResource(id = R.color.green)
-                )
+
+            }
+            Box(modifier = Modifier.padding(top = 16.dp)) {
+                Text(text = "osidfdosimvdiomviosdmvaoidmvidvdfsvdfsv")
 
             }
         }
 
+
     }
+}
 
 
+@Composable
+fun IconsRow() {
+    Row(
+        modifier = Modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.SpaceAround
+    ) {
+        IconsDetail(
+            iconId = R.drawable.ic_check_circle_24,
+            iconColor = R.color.green,
+            iconDescription = "ICON",
+            textColor = R.color.green
+        )
+
+        IconsDetail(
+            iconId = R.drawable.ic_check_circle_24,
+            iconColor = R.color.green,
+            iconDescription = "ICON",
+            textColor = R.color.green
+        )
+
+        IconsDetail(
+            iconId = R.drawable.ic_check_circle_24,
+            iconColor = R.color.green,
+            iconDescription = "ICON",
+            textColor = R.color.green
+        )
+    }
 }
