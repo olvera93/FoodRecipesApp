@@ -8,6 +8,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
@@ -17,9 +18,9 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun IconsDetail(
     iconId: Int,
-    iconColor: Int,
+    iconColor: Color,
     iconDescription: String,
-    textColor: Int
+    textColor: Color
 ) {
 
     Row(modifier = Modifier.padding(end = 16.dp, bottom = 16.dp)
@@ -27,7 +28,7 @@ fun IconsDetail(
         Image(
             painter = painterResource(iconId),
             contentDescription = "",
-            colorFilter = ColorFilter.tint(color = colorResource(id = iconColor)),
+            colorFilter = ColorFilter.tint(color = iconColor),
             alignment = Alignment.Center
         )
 
@@ -35,7 +36,7 @@ fun IconsDetail(
             modifier = Modifier.padding(start = 4.dp),
             text = iconDescription,
             textAlign = TextAlign.Center,
-            color = colorResource(id = textColor)
+            color = textColor
         )
     }
 }

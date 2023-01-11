@@ -1,8 +1,10 @@
 package com.olvera.foodrecipesapp.util
 
+import org.jsoup.Jsoup
+
 class Constants {
     companion object {
-        const val API_KEY = "YOUR_API_KEY"
+        const val API_KEY = "YOUR_API"
         const val BASE_URL = "https://api.spoonacular.com/"
         const val BASE_IMAGE_URL_INGREDIENTS = "https://spoonacular.com/cdn/ingredients_100x100/"
         const val BASE_IMAGE_URL = "https://spoonacular.com/recipeImages/"
@@ -26,5 +28,12 @@ class Constants {
         const val PREFERENCES_DIET_TYPE = "dietType"
         const val PREFERENCES_DIET_TYPE_ID = "dietTypeId"
         const val PREFERENCES_BACK_ONLINE = "backOnline"
+
+        fun parseHtml(description: String): String {
+            return Jsoup.parse(description).text()
+        }
+
     }
+
+
 }

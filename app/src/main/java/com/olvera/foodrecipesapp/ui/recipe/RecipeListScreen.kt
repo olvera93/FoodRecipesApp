@@ -24,6 +24,7 @@ import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.olvera.foodrecipesapp.composables.Icons
 import com.olvera.foodrecipesapp.model.Result
+import com.olvera.foodrecipesapp.util.Constants
 import org.jsoup.Jsoup
 
 private const val GRID_SPAN_COUNT = 1
@@ -106,7 +107,7 @@ fun RecipeGridItem(
 
                 Text(
                     modifier = Modifier.padding(top = 8.dp),
-                    text = parseHtml(recipe.summary),
+                    text = Constants.parseHtml(recipe.summary),
                     maxLines = 3
                 )
 
@@ -128,11 +129,11 @@ fun RecipeGridItem(
 
                     Icons(
                         iconId = R.drawable.ic_leaf,
-                        iconColor = if (recipe.vegetarian) colorResource(id = R.color.green) else colorResource(
+                        iconColor = if (recipe.vegan) colorResource(id = R.color.green) else colorResource(
                             id = R.color.darkGray
                         ),
                         iconDescription = if (recipe.vegetarian) "Vegan" else "Not Vegan",
-                        textColor = if (recipe.vegetarian) colorResource(id = R.color.green) else colorResource(
+                        textColor = if (recipe.vegan) colorResource(id = R.color.green) else colorResource(
                             id = R.color.darkGray
                         )
                     )
@@ -143,6 +144,3 @@ fun RecipeGridItem(
     }
 }
 
-fun parseHtml(description: String): String {
-    return Jsoup.parse(description).text()
-}

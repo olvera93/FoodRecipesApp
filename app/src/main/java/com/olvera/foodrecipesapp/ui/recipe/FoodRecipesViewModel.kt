@@ -37,7 +37,7 @@ class FoodRecipesViewModel @Inject constructor(
                     DEFAULT_RECIPES_NUMBER,
                     API_KEY,
                     "main course",
-                    "vegetarian",
+                    "gluten free",
                     "true",
                     "true"
                 )
