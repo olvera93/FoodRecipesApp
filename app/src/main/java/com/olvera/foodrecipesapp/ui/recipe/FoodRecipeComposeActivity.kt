@@ -1,5 +1,6 @@
 package com.olvera.foodrecipesapp.ui.recipe
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -12,6 +13,7 @@ import coil.annotation.ExperimentalCoilApi
 import com.olvera.foodrecipesapp.Home
 import com.olvera.foodrecipesapp.ui.recipe.theme.FoodRecipesAppTheme
 import dagger.hilt.android.AndroidEntryPoint
+
 
 @ExperimentalFoundationApi
 @ExperimentalMaterialApi
