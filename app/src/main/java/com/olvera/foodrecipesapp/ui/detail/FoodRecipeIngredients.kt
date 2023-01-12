@@ -77,6 +77,7 @@ fun IngredientGridItem(ingredient: ExtendedIngredient) {
                     .padding(8.dp),
                 model = ImageRequest.Builder(LocalContext.current)
                     .data(BASE_IMAGE_URL_INGREDIENTS + ingredient.image)
+                    .crossfade(2)
                     .crossfade(true)
                     .build(),
                 contentDescription = ingredient.name
