@@ -6,7 +6,10 @@ import androidx.compose.ui.Modifier
 import com.olvera.foodrecipesapp.R
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.ExperimentalMaterialApi
+import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.graphics.Color
@@ -38,13 +41,21 @@ fun FoodRecipeDetailScreen(
 
     val recipe = detailViewModel.recipe.value!!
 
-    Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(color = Color.White)
-    ) {
-        RecipeInformation(recipe)
+    Scaffold(topBar = {
+
+    }) {
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .verticalScroll(rememberScrollState())
+                .background(color = Color.White)
+
+            ) {
+            RecipeInformation(recipe)
+        }
     }
+
+
 }
 
 
@@ -221,8 +232,7 @@ fun RecipeDetail(recipe: Result) {
 
             }
         }
-
-
     }
 }
+
 

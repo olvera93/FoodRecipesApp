@@ -2,6 +2,8 @@ package com.olvera.foodrecipesapp.ui.foodjoke
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Card
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -24,7 +26,11 @@ fun FoodJokeScreen(viewModel: FoodJokeViewModel = hiltViewModel()) {
         contentDescription = ""
     )
 
-    FoodRecipeJokeCard(foodJoke = recipe)
+    Box(modifier = Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(bottom = 16.dp),
+        contentAlignment = Alignment.Center) {
+        FoodRecipeJokeCard(foodJoke = recipe)
+    }
+
 
 
 }

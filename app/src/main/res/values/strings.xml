@@ -3,7 +3,8 @@
     <string name="title_activity_food_recipe_compose">FoodRecipeComposeActivity</string>
     <string name="nav_home_screen">Home Screen</string>
     <string name="title_activity_food_joke">FoodJokeActivity</string>
-    <string name="title_activity_food_recipe_detail">FoodRecipeDetailActivity</string>
+    <string name="title_activity_food_recipe_detail">Detail</string>
+
 
     // Bottom Sheet
     <string name="meal_type">Meal Type</string>
