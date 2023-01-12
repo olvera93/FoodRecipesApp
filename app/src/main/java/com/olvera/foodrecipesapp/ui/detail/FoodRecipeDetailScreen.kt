@@ -6,10 +6,11 @@ import androidx.compose.ui.Modifier
 import com.olvera.foodrecipesapp.R
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
-import androidx.compose.material.TopAppBar
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
@@ -24,7 +25,6 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import coil.annotation.ExperimentalCoilApi
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
-import com.olvera.foodrecipesapp.composables.BackNavigationIcon
 import com.olvera.foodrecipesapp.composables.Icons
 import com.olvera.foodrecipesapp.composables.IconsDetail
 import com.olvera.foodrecipesapp.model.Result
@@ -47,7 +47,8 @@ fun FoodRecipeDetailScreen(
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .background(color = Color.White),
+                .verticalScroll(rememberScrollState())
+                .background(color = Color.White)
 
             ) {
             RecipeInformation(recipe)

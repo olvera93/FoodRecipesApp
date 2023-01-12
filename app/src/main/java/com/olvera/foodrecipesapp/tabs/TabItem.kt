@@ -18,6 +18,9 @@ sealed class TabItem(
     @ExperimentalFoundationApi
     object ItemOverview: TabItem("Overview", { FoodRecipeDetailScreen() })
 
+    @ExperimentalCoilApi
+    @ExperimentalMaterialApi
+    @ExperimentalFoundationApi
     object ItemIngredients: TabItem("Ingredients", { FoodRecipeIngredients() })
 
     object ItemInstructions: TabItem("Instructions", { FoodRecipeInstructions() })

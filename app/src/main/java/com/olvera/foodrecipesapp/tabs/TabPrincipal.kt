@@ -7,6 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
 import coil.annotation.ExperimentalCoilApi
 import com.google.accompanist.pager.*
@@ -79,8 +80,8 @@ fun Tabs(tabs: List<TabItem>, pagerState: PagerState) {
 fun FoodRecipeScreenTopBar(onClick: () -> Unit) {
     TopAppBar(
         title = { Text(text = stringResource(id = R.string.title_activity_food_recipe_detail)) },
-        backgroundColor = Color.White,
-        contentColor = Color.Black,
+        backgroundColor = colorResource(id = R.color.purple_500),
+        contentColor = Color.White,
         navigationIcon = { BackNavigationIcon(onClick) }
     )
 }
