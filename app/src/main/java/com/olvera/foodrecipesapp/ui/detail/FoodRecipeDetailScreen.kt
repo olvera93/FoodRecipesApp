@@ -7,7 +7,9 @@ import com.olvera.foodrecipesapp.R
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.ExperimentalMaterialApi
+import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
+import androidx.compose.material.TopAppBar
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
@@ -22,6 +24,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import coil.annotation.ExperimentalCoilApi
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
+import com.olvera.foodrecipesapp.composables.BackNavigationIcon
 import com.olvera.foodrecipesapp.composables.Icons
 import com.olvera.foodrecipesapp.composables.IconsDetail
 import com.olvera.foodrecipesapp.model.Result
@@ -38,13 +41,20 @@ fun FoodRecipeDetailScreen(
 
     val recipe = detailViewModel.recipe.value!!
 
-    Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(color = Color.White)
-    ) {
-        RecipeInformation(recipe)
+    Scaffold(topBar = {
+
+    }) {
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(color = Color.White),
+
+            ) {
+            RecipeInformation(recipe)
+        }
     }
+
+
 }
 
 
@@ -221,8 +231,7 @@ fun RecipeDetail(recipe: Result) {
 
             }
         }
-
-
     }
 }
+
 

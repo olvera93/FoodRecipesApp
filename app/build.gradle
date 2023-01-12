@@ -78,7 +78,10 @@ dependencies {
     //Jsoup
     implementation 'org.jsoup:jsoup:1.13.1'
 
+    implementation "com.google.accompanist:accompanist-pager:0.20.0"
 
+    // If using indicators, also depend on
+    implementation "com.google.accompanist:accompanist-pager-indicators:0.20.0"
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.4'
